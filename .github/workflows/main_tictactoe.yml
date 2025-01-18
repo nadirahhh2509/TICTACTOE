@@ -59,4 +59,4 @@ jobs:
           app-name: 'TICTACTOE'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5DED1D758243443BB381B625CC9DA1FB }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_903C3F6E67754ABB8A9D6DBE33D7D9F5 }}
