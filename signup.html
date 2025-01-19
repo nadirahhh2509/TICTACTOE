@@ -1,11 +1,10 @@
-<!-- filepath: /c:/Users/User/Desktop/Multi TicTacToe/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi TicTacToe</title>
+    <title>Multi TicTacToe - Sign Up</title>
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; }
@@ -18,14 +17,43 @@
 </head>
 <body>
     <h1>TicTacToe</h1>
-    <form action="/login" method="post">
-        <h2>Login</h2>
+    <form id="signupForm" action="/signup" method="post">
+        <h2>Sign Up</h2>
+        <br>
         <label for="username">Username:</label>
+        <br>
         <input type="text" id="username" name="username" required>
+        <br>
+        <br>
         <label for="password">Password:</label>
+        <br>
         <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
+        <br>
+        <br>
+        <button type="submit">Sign Up</button>
     </form>
-    <button onclick="window.location.href='/signup.html'">Sign Up</button>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            if (response.ok) {
+                alert('User created successfully');
+            } else {
+                alert('User already exists. Please try again with a different username!');
+            }
+        });
+    </script>
 </body>
 </html>
