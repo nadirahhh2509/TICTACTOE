@@ -5,9 +5,10 @@ const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('./src/models/User'); // Ensure this path is correct
 
-const uri = "mongodb+srv://sarah:sarah123@cluster0.dnahz.mongodb.net/tictactoe?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGODB_URI || "mongodb+srv://sarah:Sarah12345@cluster0.dnahz.mongodb.net/tictactoe?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri)
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch(err => console.error("Could not connect to MongoDB Atlas", err));
 
