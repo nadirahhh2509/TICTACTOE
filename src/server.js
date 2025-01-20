@@ -138,11 +138,12 @@ app.post('/login', async (req, res) => {
             httpOnly: true // cookie cannot be accessed via JavaScript
         });
 
-        if (check.role === 'admin') {
+        /*if (check.role === 'admin') {
             res.status(200).json({ message: 'Login successful', redirect: '/admin' });
         } else {
             res.status(200).json({ message: 'Login successful', redirect: '/game' });
-        }
+        }*/
+            res.status(200).json({ message: 'Login successful', redirect: '/game' });
     } catch (error) {
         res.status(400).json({ message: 'Error logging in' });
     }
