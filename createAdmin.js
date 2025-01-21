@@ -13,8 +13,8 @@ mongoose.connect(uri)
     .catch(err => console.error("Could not connect to MongoDB Atlas", err));
 
 async function createAdmin() {
-    const username = 'admin1';
-    const password = 'password';
+    const username = 'admin';
+    const password = 'adminpassword';
     const role = 'admin';
 
     const hashedPassword = await bcryptjs.hash(password, 10);

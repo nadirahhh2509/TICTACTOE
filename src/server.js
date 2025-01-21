@@ -13,11 +13,13 @@ const User = require('./models/User'); // Ensure this path is correct
 
 const app = express();
 
-const uri = process.env.MONGODB_URI || "mongodb+srv://sarah:Sarah12345@cluster0.dnahz.mongodb.net/tictactoe?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://sarah:Sarah12345@cluster0.1qp6x.mongodb.net/tictactoe?retryWrites=true&w=majority&appName=Cluster0";
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("Connected to MongoDB Atlas"))
-    .catch(err => console.error("Could not connect to MongoDB Atlas", err));
+
+mongoose.connect(uri)
+  .then(() => console.log("Connected to MongoDB Atlas"))
+  .catch(err => console.error("Could not connect to MongoDB Atlas", err));
+
 
 const server = http.createServer(app);
 const io = new Server(server);
@@ -53,7 +55,7 @@ function validatePassword(password) {
 }
 
 app.use(session({
-    secret: 'helloworldthisisthegamewhereyoucanplaytictactoe',
+    secret: 'helloworldwelcometothegamewhereyouwillplaytictactoe',
     resave: false,
     saveUninitialized: true
 }));
